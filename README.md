@@ -1,6 +1,6 @@
-# foolscap theme [![](https://badge.fury.io/js/jsonresume-theme-boilerplate.svg)](https://www.npmjs.org/package/jsonresume-theme-boilerplate)
+# foolscap theme
 
-This is the foolscap theme for [JSON Resume](http://jsonresume.org/). This is a work in progress, inspired by Kristoffer Dalby's own [resume](https://github.com/kradalby/resume).
+This is the foolscap theme for [JSON Resume](http://jsonresume.org/). This is a work in progress, inspired by Kristoffer Dalby's own [resume](https://github.com/kradalby/resume). Check out a [preview](https://resume.tommasoturchi.fyi).
 
 ## Getting started
 
@@ -72,7 +72,7 @@ Now that you have your boilerplate theme installed, go through a quick overview 
 * `package.json`: Your package.json is required by all npm packages. Everytime you want to release a new update of your theme, you'll need to update it's version number.
 * `index.js`: This is the file that will return the needed HTML to the theme server. You can use it to process some things with your theme first, but we'll talk about that a bit later.
 * `resume.hbs`: This is your actual template. This file is sent to the `index.js` for it to send to the theme server.
-* `style.css`: This is where all the CSS of your project goes. Since the `index.js` only returns HTML, the contents of this file are put between `<style>` tags in your `resume.hbs` file.
+* `style.scss`: This is where all the CSS of your project goes. Since the `index.js` only returns HTML, the contents of this file are transpiled and put between `<style>` tags in your `resume.hbs` file.
 
 In order to get values from an actual JSONResume, you'll need to use a templating system, such as [Mustache](http://mustache.github.io/) or [Handlebars](http://handlebarsjs.com/). The default boilerplate theme uses Handlebars.
 
@@ -94,15 +94,15 @@ At the top, you can already see the Node.js `require` function being used with t
 
 The most important part of `index.js` is the `render` function. This is where all the compilation goes. This render function is expected to take a resume object (from a `resume.json`), and should return HTML. In this case, it is returning a compiled Handlebars document. If you removed the Handlebars dependency, you'll want to remove it and replace it with your own templating system compilation.
 
-Above the `return` line are css and template variables. Using the Node.js `fs` module, it reads first the `style.css` and the `resume.hbs`.
+Above the `return` line are css and template variables. Using the Node.js `fs` module, it reads first the `style.scss` and the `resume.hbs`.
 
 ### resume.hbs
 
 The `resume.hbs` file is where the actual template is. It contains all of the markup needed for your resume. By default, this is a Handlebars document, but it can obviously be changed into a different templating document.
 
-### style.css
+### style.scss
 
-Last but not least, the `style.css` defines your styles. Technically, this is completely optional, as you could just write all of your styles in the `<style>` tags of your `resume.hbs`. As the `index.js`, the contents of the `style.css` are put into the `<style>` tags of your compiled theme later, yet again, this is something can change.
+Last but not least, the `style.scss` defines your styles. Technically, this is completely optional, as you could just write all of your styles in the `<style>` tags of your `resume.hbs`. As the `index.js`, the contents of the `style.scss` are transpiled and put into the `<style>` tags of your compiled theme later, yet again, this is something can change.
 
 ## Deployment
 
