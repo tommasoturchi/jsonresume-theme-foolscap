@@ -1,0 +1,33 @@
+{{#resume.basics}}
+<section id="basics">
+	<h1>{{name}}</h1>
+	<h3>{{label}}</h3>
+	<h2>Contact</h2>
+	<div class="contact">
+		{{#location}}
+		{{#if city}}
+		<h5 class="location">
+			{{city}}, {{expandCountryCode countryCode}}
+		</h5>
+		{{/if}}
+		{{/location}}
+		{{#if email}}
+		<h5 class="email">
+			{{escape email}}
+		</h5>
+		{{/if}}
+		{{#if phone}}
+		<h5 class="phone">
+			{{phone}}
+		</h5>
+		{{/if}}
+		{{#if profiles.length}}
+		{{#each profiles}}
+		<h5 class={{lowerCase network}}>
+			<a href={{url}}>{{username}}</a>
+		</h5>
+		{{/each}}
+		{{/if}}
+	</div>
+</section>
+{{/resume.basics}}

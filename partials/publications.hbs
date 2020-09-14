@@ -1,0 +1,40 @@
+{{#if resume.publications.length}}
+<section id="publications">
+	<h2>Publications</h2>
+	{{#group resume.publications by="type"}}
+		<div class="type">
+			<h3>{{ value }}</h3>
+			{{#each items}}
+			<div class="item">
+				{{#if name}}
+				<h5 class="name">
+					{{#if url}}
+					<a href={{url}}>
+						{{/if}}
+						{{name}}
+						{{#if url}}
+					</a>
+					{{/if}}
+				</h5>
+				{{/if}}
+				{{#if releaseDate}}
+				<h5 class="date">
+					{{releaseDate}}
+				</h5>
+				{{/if}}
+				{{#if authors}}
+				<h5 class="authors">
+					{{authors}}
+				</h5>
+				{{/if}}
+				{{#if publisher}}
+				<p class="publisher">
+					{{publisher}}
+				</p>
+				{{/if}}
+			</div>
+			{{/each}}
+		</div>
+	{{/group}}
+</section>
+{{/if}}

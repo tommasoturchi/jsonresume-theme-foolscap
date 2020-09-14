@@ -1,0 +1,328 @@
+@import "~reset-css/sass/reset";
+@import "~paper-css/paper";
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600);
+
+// Font Variables
+$open-sans: "Open Sans", sans-serif;
+
+$fa-font-path: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/webfonts" !default;
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+body {
+  font-family: $open-sans;
+  color: #404040;
+}
+
+#secondPage {
+  padding: 10mm;
+}
+
+@mixin underlined($color, $bottom: 1mm) {
+  border-bottom-style: solid;
+  border-color: $color;
+  border-bottom-width: 2pt;
+  padding-bottom: $bottom;
+}
+
+%bBoxBlock {
+  display: block;
+  box-sizing: border-box;
+}
+
+%bBoxInline {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+@mixin faIcon($code, $brand: false) {
+  @if $brand {
+    font-family: "Font Awesome 5 Brands";
+  } @else {
+    font-family: "Font Awesome 5 Free";
+  }
+  content: $code;
+  font-size: 12pt;
+  margin-right: 1.1mm;
+  height: 1em;
+}
+
+#viewLeft {
+  @extend %bBoxInline;
+  background-color: #d5ebed;
+  height: 296mm;
+  width: 210mm * 0.35;
+  padding: 10mm;
+}
+
+#viewRight {
+  @extend %bBoxInline;
+  background-color: #ffffff;
+  height: 296mm;
+  width: 210mm * 0.65;
+  padding: 10mm;
+  float: right;
+}
+
+#basics,
+#skills,
+#languages,
+#interests {
+  @extend %bBoxInline;
+  width: 100%;
+  margin-bottom: 7mm;
+
+  h1 {
+    @extend %bBoxInline;
+    @include underlined(#404040, 1.2mm);
+    margin-bottom: 3.2mm;
+    font-size: 18.5pt;
+    font-weight: 600;
+  }
+
+  h2 {
+    @extend %bBoxInline;
+    @include underlined(#404040, 1.1mm);
+    margin-bottom: 4mm;
+    font-size: 16pt;
+    font-weight: 600;
+  }
+
+  h3 {
+    @extend %bBoxInline;
+    margin-bottom: 3mm;
+    font-size: 12pt;
+    font-weight: 500;
+  }
+
+  h5 {
+    @extend %bBoxInline;
+    margin-bottom: 3mm;
+    font-size: 11pt;
+    font-weight: 400;
+  }
+}
+
+#basics > h2 {
+  margin-top: 7mm;
+}
+
+#basics h5 {
+  a {
+    text-decoration: none;
+    color: #404040;
+  }
+
+  &.location {
+    &::before {
+      @include faIcon("\f0ac");
+    }
+  }
+
+  &.email {
+    &::before {
+      @include faIcon("\f0e0");
+    }
+  }
+
+  &.phone {
+    &::before {
+      @include faIcon("\f095");
+    }
+  }
+
+  &.twitter {
+    &::before {
+      @include faIcon("\f099", true);
+    }
+  }
+
+  &.linkedin {
+    &::before {
+      @include faIcon("\f08c", true);
+    }
+  }
+
+  &.github {
+    &::before {
+      @include faIcon("\f09b", true);
+    }
+  }
+}
+
+#skills h5.level {
+  @extend %bBoxInline;
+  width: 100%;
+  float: right;
+  font-style: italic;
+  font-size: 10pt;
+  font-weight: 400;
+  margin-bottom: 2mm;
+}
+
+#skills ul {
+  @extend %bBoxBlock;
+  margin-bottom: 3mm;
+}
+
+#skills li {
+  @extend %bBoxInline;
+  background-color: #bcd2d4;
+  padding: 0.5mm 3mm 0.8mm 3mm;
+  border-radius: 3mm;
+  text-align: center;
+  margin-right: 1mm;
+  margin-bottom: 1mm;
+  font-size: 8pt;
+  font-weight: 400;
+}
+
+#languages .item {
+  @extend %bBoxInline;
+  width: 100%;
+}
+
+#languages h5.fluency {
+  float: right;
+  font-style: italic;
+  line-height: 1.25em;
+}
+
+#languages h5#italian, h5#italiano {
+  &::before {
+    @include faIcon("\f818");
+  }
+}
+
+#languages h5#english, h5#inglese {
+  &::before {
+    @include faIcon("\f74d");
+  }
+}
+
+#interests h5#cooking, h5#cucinare {
+  &::before {
+    @include faIcon("\f5a7");
+  }
+}
+
+#interests h5#juggling, h5#giocolare {
+  &::before {
+    @include faIcon("\f490");
+  }
+}
+
+#experience,
+#education,
+#volunteer,
+#awards,
+#publications,
+#projects {
+  margin-bottom: 7mm;
+
+  h2 {
+    @extend %bBoxInline;
+    @include underlined(#d5ebed);
+    margin-bottom: 4mm;
+    font-size: 16pt;
+    font-weight: 600;
+  }
+
+  .item {
+    margin-bottom: 5.5mm;
+
+    > h3 {
+      @extend %bBoxInline;
+      margin-bottom: 3mm;
+      font-size: 12pt;
+      font-weight: 500;
+    }
+
+    > h5.date {
+      @extend %bBoxInline;
+      float: right;
+      > * {
+        font-size: 11pt;
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #404040;
+    }
+
+    > h5.company,
+    > h5.awarder,
+    > h5.institution {
+      @extend %bBoxBlock;
+      font-size: 10pt;
+      font-weight: 400;
+      color: #404040;
+      margin-bottom: 1.5mm;
+    }
+
+    > p.summary {
+      font-size: 10pt;
+      font-weight: 300;
+      line-height: 13pt;
+    }
+  }
+}
+
+#publications {
+  h3 {
+    @extend %bBoxBlock;
+    margin-bottom: 2mm;
+    font-size: 12pt;
+    font-weight: 500;
+  }
+
+  .type {
+    margin-bottom: 3mm;
+  }
+
+  .item {
+    margin-bottom: 1.5mm;
+
+    > h5.name {
+      @extend %bBoxInline;
+      font-size: 10pt;
+      font-weight: 400;
+      color: #404040;
+      margin-bottom: 1mm;
+    }
+
+    > h5.authors {
+      font-size: 9pt;
+      font-weight: 300;
+      margin-bottom: 1.1mm;
+    }
+
+    > p.publisher {
+      font-size: 8pt;
+      font-weight: 400;
+    }
+  }
+}
+
+#volunteer {
+  h3 {
+    @extend %bBoxBlock;
+    margin-bottom: 3mm;
+    font-size: 12pt;
+    font-weight: 500;
+  }
+
+  .type {
+    margin-bottom: 3mm;
+  }
+
+  .item {
+    margin-bottom: 1.5mm;
+  }
+}

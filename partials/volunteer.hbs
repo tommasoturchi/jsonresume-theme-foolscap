@@ -1,0 +1,41 @@
+{{#if resume.volunteer.length}}
+<section id="volunteer">
+	<h2>Volunteer</h2>
+	{{#group resume.volunteer by="position"}}
+		<div class="type">
+			<h3 class="position">
+				{{value}}
+			</h3>
+			{{#each items}}
+			<div class="item">
+				{{#if startDate}}
+				<h5 class="date">
+					<span class="startDate">
+						{{startDate}}
+					</span>
+					<span>-</span>
+					{{#if endDate}}
+					<span class="endDate">
+						{{endDate}}
+					</span>
+					{{else}}
+					<span class="endDate">
+						present
+					</span>
+					{{/if}}
+				</h5>
+				{{/if}}
+				{{#if organization}}
+				<h5 class="company">
+					{{organization}}
+				</h5>
+				{{/if}}
+				{{#if summary}}
+				<p class="summary">{{summary}}</p>
+				{{/if}}
+			</div>
+			{{/each}}
+		</div>
+	{{/group}}
+</section>
+{{/if}}

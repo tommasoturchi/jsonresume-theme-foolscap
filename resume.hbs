@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+
+	<title>Resume – {{#resume.basics}}{{name}}{{/resume.basics}}</title>
+	
+	<style>{{{css}}}</style>
+
+</head>
+
+<body class="A4">
+
+	<div class="sheet">
+		<div id="viewLeft">
+			{{> basics }}
+			{{> skills }}
+			{{> languages }}
+			{{> interests }}
+		</div>
+		<div id="viewRight">
+			{{> experience }}
+			{{> education }}
+		</div>
+	</div>
+
+	<!--div class="sheet padding-10mm">
+		{{> publications }}
+	</div>
+
+	<div class="sheet padding-10mm">
+		{{> projects }}
+		{{> awards }}
+		{{> volunteer }}
+	</div-->
+</body>
+
+</html>

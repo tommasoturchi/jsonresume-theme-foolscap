@@ -1,0 +1,24 @@
+{{#if resume.skills.length}}
+<section id="skills">
+	<h2>Skills</h2>
+	{{#each resume.skills}}
+	{{#if name}}
+	<h3>
+		{{name}}
+	</h3>
+	{{/if}}
+	{{#if level}}
+	<h5 class="level">
+		{{level}}
+	</h5>
+	{{/if}}
+	{{#if keywords.length}}
+	<ul class="keywords">
+		{{#each keywords}}
+		<li>{{.}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{/each}}
+</section>
+{{/if}}
