@@ -1,6 +1,6 @@
 {{#if resume.volunteer.length}}
 <section id="volunteer">
-	<h2>Volunteer</h2>
+	<h2>{{pickLang "Volunteer" "Volontariato"}}</h2>
 	{{#group resume.volunteer by="position"}}
 		<div class="type">
 			<h3 class="position">
@@ -20,14 +20,20 @@
 					</span>
 					{{else}}
 					<span class="endDate">
-						present
+						{{pickLang "present" "presente"}}
 					</span>
 					{{/if}}
 				</h5>
 				{{/if}}
 				{{#if organization}}
 				<h5 class="company">
-					{{organization}}
+					{{#if url}}
+						<a href={{url}}>
+					{{/if}}
+						{{organization}}
+					{{#if url}}
+						</a>
+					{{/if}}
 				</h5>
 				{{/if}}
 				{{#if summary}}

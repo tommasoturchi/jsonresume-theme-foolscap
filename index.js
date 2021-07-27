@@ -24,6 +24,21 @@ function render(resume) {
 
   groupBy.register(Handlebars);
 
+  Handlebars.registerHelper("pickLang", function (en, it) {
+    switch (resume.basics.location.countryCode) {
+      case "UK":
+        return en;
+      case "IT":
+        return it;
+      default:
+        return "";
+    }
+  });
+
+  Handlebars.registerHelper("idFromType", function (type) {
+    return type.split(" ")[0].toLocaleLowerCase();
+  });
+  
   Handlebars.registerHelper("expandCountryCode", function (countryCode) {
     switch (countryCode) {
       case "UK":

@@ -1,6 +1,6 @@
 {{#if resume.projects.length}}
 <section id="projects">
-	<h2>Projects</h2>
+	<h2>{{pickLang "Projects" "Progetti"}}</h2>
 	{{#each resume.projects}}
 	<div class="item">
 		<h3>
@@ -25,7 +25,7 @@
 			</span>
 			{{else}}
 			<span class="endDate">
-				present
+				{{pickLang "present" "presente"}}
 			</span>
 			{{/if}}
 		</h5>

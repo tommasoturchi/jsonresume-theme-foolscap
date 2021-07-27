@@ -1,8 +1,8 @@
 {{#if resume.publications.length}}
 <section id="publications">
-	<h2>Publications</h2>
+	<h2>{{pickLang "Publications" "Pubblicazioni"}}</h2>
 	{{#group resume.publications by="type"}}
-		<div class="type">
+		<div class="type" id="{{idFromType value}}">
 			<h3>{{ value }}</h3>
 			{{#each items}}
 			<div class="item">

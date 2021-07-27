@@ -1,6 +1,6 @@
 {{#if resume.education.length}}
 <section id="education">
-	<h2>Education</h2>
+	<h2>{{pickLang "Education" "Formazione"}}</h2>
 	{{#each resume.education}}
 	<div class="item">
 		{{#if area}}
@@ -23,7 +23,7 @@
 			</span>
 			{{else}}
 			<span class="endDate">
-				present
+				{{pickLang "present" "presente"}}
 			</span>
 			{{/if}}
 		</h5>
