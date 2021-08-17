@@ -2,6 +2,12 @@
 <section id="publications">
 	<h2>{{pickLang "Publications" "Pubblicazioni"}}</h2>
 	{{#group resume.publications by="type"}}
+		{{#ifEquals value "Pubblicazioni in Riviste Scientifiche"}}
+		</section>
+		</div>
+		<div class="sheet padding-10mm">
+		<section id="publications">
+		{{/ifEquals}}
 		<div class="type" id="{{idFromType value}}">
 			<h3>{{ value }}</h3>
 			{{#each items}}
